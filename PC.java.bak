@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class Producerconsumer
+{
+	public static void main(String[] args)
+	{
+		int[]buffer=new int[10];
+		int bufsize,in,out,produce,consume,choice=0;
+		in=0;
+		out=0;
+		bufsize=10;
+		while(choice!=3)
+		{
+			System.out.print("\n1.Produce \t2.Consume \t3.Exit");
+			System.out.print("\nEnter your choice");
+			choice=STDIN_SCANNER.nextInt();
+			switch(choice){
+				case 1:
+					if((in+1)%bufsize==out)
+				{
+					System.out.print("\nBuffer is Full");
+				}
+				else
+				{
+					System.out.print("\nEnter the value:");
+					produce=STDIN_SCANNER.nextInt();
+					buffer[in]=produce;
+					in=(in+1)%bufsize;
+				}
+				break;
+
+				case 2:
+					if(in==out)
+				{
+					System.out.print("\nBuffer is Empty");
+				}
+				else
+				{
+					consume=buffer[out];
+					System.out.println("\nThe consumed value is"+consume);
+					out=(out+1)%bufsize;
+				}
+				break;
+			}
+		}
+	}
+	public final static Scanner STDIN_SCANNER=new Scanner(System.in);
+}
+
+				    
+
+
+}
